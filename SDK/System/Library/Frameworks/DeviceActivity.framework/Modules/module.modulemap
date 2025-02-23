@@ -1,6 +1,0 @@
-framework module DeviceActivity {
-  header "DeviceActivity-Swift.h"
-
-  export *
-  module DeviceActivity { export * }
-}

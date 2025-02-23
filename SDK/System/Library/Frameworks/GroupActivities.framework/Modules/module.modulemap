@@ -1,4 +1,0 @@
-framework module GroupActivities {
-  export *
-  module GroupActivities { export * }
-}

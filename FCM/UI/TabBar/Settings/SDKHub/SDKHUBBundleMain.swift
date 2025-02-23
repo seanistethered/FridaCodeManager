@@ -31,7 +31,7 @@ struct SDKDownload: View {
         DispatchQueue.global(qos: .utility).async {
             ShowAlert(UIAlertController(title: "Downloading SDK", message: "", preferredStyle: .alert))
             cfolder(atPath: "\(global_sdkpath)")
-            fdownload("https://polcom.de/sdk/iOS\(sdk).zip", "tmp/sdk.zip")
+            fdownload("https://raw.githubusercontent.com/fridakitten/FridaCodeManager/main/FCM/UI/TabBar/Settings/SDKHub/sdk/iOS\(sdk).zip", "tmp/sdk.zip")
             if libzip_unzip("\(global_container)/tmp/sdk.zip","\(global_sdkpath)") != 0 {
                 // back then we did ran download tasks unnecessarily as root
                 #if jailbreak
