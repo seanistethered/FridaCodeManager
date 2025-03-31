@@ -1,0 +1,12 @@
+Package: com.sparklechan.swifty
+Name: FridaCodeManager
+Version: 2.0
+Architecture: iphoneos-arm64e
+Description: Full fledged Xcode-like IDE for iOS
+Depends: swift, clang-14, ldid, git
+Icon: https://raw.githubusercontent.com/fridakitten/FridaCodeManager/main/Blueprint/FridaCodeManager.app/AppIcon.png
+Conflicts: com.sparklechan.sparkkit
+Maintainer: FCCT
+Author: FCCT
+Section: Utilities
+Tag: role::hacker
