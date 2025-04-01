@@ -12,3 +12,5 @@ SDK
 *.theos
 .vscode
 packages
+compile_commands.json
+control

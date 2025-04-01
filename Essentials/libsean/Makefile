@@ -1,42 +1,10 @@
-# Makefile
-#
-# Sean16 SOC for iOS
-# Meow :3
-# Created by SeanIsNotAConstant on October the 12th 2024
-#
+include $(THEOS)/makefiles/common.mk
 
-# config
-SHELL := /var/jb/bin/sh
-SDKROOT := ./sdk
-CC := clang
-CF := -target arm64-apple-ios15 -arch arm64 -ISOC -ICompiler
+LIBRARY_NAME = libsean
 
-# finding all C and Objective-C files
-CFILES := $(shell find . -name "*.c")
-MFILES := $(shell find . -name '*.m')
+libsean_INSTALL = 0
 
-# compiling them to libsean16
-# fishy patch
-uuid := uuid
+libsean_FILES = $(shell find . -type f -name "*.c") $(shell find . -type f -name "*.m")
+libsean_CFLAGS = -fobjc-arc -ISOC -ICompiler
 
-all: compile bind
-
-compile:
-	@if [ -d tmp ]; then \
-		rm -rf tmp; \
-		mkdir tmp tmp/out tmp/lib; \
-	else \
-		mkdir tmp tmp/out tmp/lib; \
-	fi
-	@for file in $(CFILES); do \
-		$(CC) -isysroot $(SDKROOT) $(CF) -ISOC -c $$file -o "tmp/out/$$($(uuid)).o"; \
-	done
-	@for file in $(MFILES); do \
-		$(CC) -isysroot $(SDKROOT) $(CF) -ISOC -c $$file -o "tmp/out/$$($(uuid)).o"; \
-	done
-
-bind:
-	@ar rcs tmp/lib/libsean.a tmp/out/*.o
-
-clean:
-	@rm -rf tmp
+include $(THEOS_MAKE_PATH)/library.mk
