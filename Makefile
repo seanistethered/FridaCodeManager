@@ -37,6 +37,16 @@ before-stage::
 	fi
 
 before-package::
-	@echo "Package: com.sparklechan.fridacodemanager\nName: FridaCodeManager\nVersion: $(VERSION)\nDescription: Full fledged Xcode-like IDE for iOS\nDepends: swift, clang-14, ldid, git\nIcon: https://raw.githubusercontent.com/fridakitten/FridaCodeManager/main/Blueprint/FridaCodeManager.app/AppIcon.png\nConflicts: com.sparklechan.sparkkit\nMaintainer: FCCT\nAuthor: FCCT\nSection: Utilities\nTag: role::hacker" > control
+	@echo "Package: com.sparklechan.fridacodemanager" > control
+	@echo "Name: FridaCodeManager" >> control
+	@echo "Version: $(VERSION)" >> control
+	@echo "Description: Full fledged Xcode-like IDE for iOS" >> control
+	@echo "Depends: swift, clang-14, ldid, git" >> control
+	@echo "Icon: https://raw.githubusercontent.com/fridakitten/FridaCodeManager/main/Blueprint/FridaCodeManager.app/AppIcon.png" >> control
+	@echo "Conflicts: com.sparklechan.sparkkit" >> control
+	@echo "Maintainer: FCCT" >> control
+	@echo "Author: FCCT" >> control
+	@echo "Section: Utilities" >> control
+	@echo "Tag: role::hacker" >> control
 
 include $(THEOS_MAKE_PATH)/application.mk
