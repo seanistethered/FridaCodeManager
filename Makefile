@@ -4,7 +4,7 @@ endif
 
 VERSION = 2.0
 
-ifeq (LINUX, 1)
+ifeq ($(LINUX),1)
 
 export TARGET = iphone:clang:latest:15.0
 INSTALL_TARGET_PROCESSES = FridaCodeManager
@@ -28,7 +28,7 @@ FridaCodeManager_SWIFT_BRIDGING_HEADER = FCM/bridge.h
 FridaCodeManager_FRAMEWORKS = UIKit CoreGraphics CoreFoundation
 FridaCodeManager_PRIVATE_FRAMEWORKS = MobileContainerManager
 
-FridaCodeManager_LDFLAGS = -L$(THEOS_OBJ_DIR) -LEssentials/prebuild 
+FridaCodeManager_LDFLAGS = -L$(THEOS_OBJ_DIR) -LEssentials/lib/prebuild 
 FridaCodeManager_LIBRARIES = sean fcm zip root swiftCore
 
 FridaCodeManager_SWIFTFLAGS = -Xcc -IEssentials/include -parse-as-library -Djailbreak
@@ -43,7 +43,7 @@ before-stage::
 	fi
 
 before-package::
-	@echo "Package: com.sparklechan.fridacodemanager" > control
+	@echo "Package: com.sparklechan.swifty" > control
 	@echo "Name: FridaCodeManager" >> control
 	@echo "Version: $(VERSION)" >> control
 	@echo "Description: Full fledged Xcode-like IDE for iOS" >> control
@@ -57,7 +57,7 @@ before-package::
 
 include $(THEOS_MAKE_PATH)/application.mk
 
-else # ifeq (LINUX, 0)
+else # ifeq ($(LINUX), 0)
 
 export ROOTDIR = $(shell pwd)
 export SDK_PATH = $(ROOTDIR)/SDK
@@ -74,6 +74,8 @@ SHELL := /var/jb/bin/sh
 else
 SHELL := /bin/sh
 endif
+
+export SHELL
 
 export SHELL
 
@@ -105,8 +107,8 @@ get_sdk:
 	@if [ ! -d SDK ]; then \
 		mkdir -p tmp; \
 		cd tmp; \
-		unzip ../FCM/UI/TabBar/Settings/SDKHub/sdk/iOS15.6.zip; \
-		mv iPhoneOS15.6.sdk ../SDK; \
+		unzip ../FCM/UI/TabBar/Settings/SDKHub/sdk/iOS16.5.zip; \
+		mv iPhoneOS16.5.sdk ../SDK; \
 		cd ../SDK; \
 		mv System/Library/PrivateFrameworks/MobileContainerManager.framework System/Library/Frameworks/MobileContainerManager.framework; \
 		rm -rf tmp; \

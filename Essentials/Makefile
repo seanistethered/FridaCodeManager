@@ -4,7 +4,7 @@
 # :3
 #
 
-ifeq (LINUX, 1)
+ifeq ($(LINUX), 1)
 
 include $(THEOS)/makefiles/common.mk
 
@@ -12,7 +12,7 @@ SUBPROJECTS += libfcm
 SUBPROJECTS += libsean
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
-else # ifeq (LINUX, 0)
+else # ifeq ($(LINUX), 0)
 
 export SDKROOT := sdk
 

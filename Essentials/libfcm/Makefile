@@ -5,7 +5,7 @@
 # Created by SeanIsNotAConstant on October the 12th 2024
 #
 
-ifeq (LINUX, 1)
+ifeq ($(LINUX), 1)
 
 include $(THEOS)/makefiles/common.mk
 
@@ -18,7 +18,7 @@ libfcm_PRIVATE_FRAMEWORKS = MobileContainerManager
 
 include $(THEOS_MAKE_PATH)/library.mk
 
-else # ifeq (LINUX, 0)
+else # ifeq ($(LINUX), 0)
 
 # finding all C and Objective-C files
 CFILES := $(shell find . -name "*.c")
