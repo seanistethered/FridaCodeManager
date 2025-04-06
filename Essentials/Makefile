@@ -25,7 +25,7 @@ export MOBJ_DIR := tmp/out/m
 # fishy patch
 export uuid := uuid
 
-all: libfcm-compile libdycall-compile libsean-compile #libcheck-compile
+all: libfcm-compile libsean-compile #libcheck-compile
 
 prepare:
 	@rm -rf lib/build
