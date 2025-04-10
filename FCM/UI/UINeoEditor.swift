@@ -1302,7 +1302,8 @@ extension UserDefaults {
     }
     func color(forKey key: String) -> UIColor {
         if let colorData = self.data(forKey: key),
-           let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
+           // let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor
+           let color = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [UIColor.self], from: colorData) as? UIColor {
             return color
         }
         return UIColor.clear
