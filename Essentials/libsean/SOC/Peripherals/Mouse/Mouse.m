@@ -104,7 +104,7 @@ TouchTracker *getTracker(void *arg) {
     if (touchTrackerInstance == nil) {
         CGRect screenSize = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenSize.size.width;
-        CGFloat screenHeight = screenSize.size.height;
+        // CGFloat screenHeight = screenSize.size.height;
 
         touchTrackerInstance = [[TouchTracker alloc] initWithView:view scale:(screenWidth / 254.0)];
     }

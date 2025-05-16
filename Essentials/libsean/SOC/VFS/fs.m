@@ -99,15 +99,15 @@ void vfs_delete_file(VFSDirectory *parentDir, NSString *fileName) {
     //NSLog(@"File '%@' not found.", fileName);
 }
 
-void vfs_list_dir(VFSDirectory *dir) {
-    //NSLog(@"Listing directory: %@", dir.name);
-    for (VFSDirectory *subdir in dir.directories) {
-        //NSLog(@"[DIR] %@", subdir.name);
-    }
-    for (VFSFile *file in dir.files) {
-        //NSLog(@"[FILE] %@ (%lu bytes)", file.name, (unsigned long)file.size);
-    }
-}
+// void vfs_list_dir(VFSDirectory *dir) {
+//     //NSLog(@"Listing directory: %@", dir.name);
+//     for (VFSDirectory *subdir in dir.directories) {
+//         //NSLog(@"[DIR] %@", subdir.name);
+//     }
+//     for (VFSFile *file in dir.files) {
+//         //NSLog(@"[FILE] %@ (%lu bytes)", file.name, (unsigned long)file.size);
+//     }
+// }
 
 NSData *vfs_read_file(VFSDirectory *parentDir, NSString *fileName) {
     for (VFSFile *file in parentDir.files) {

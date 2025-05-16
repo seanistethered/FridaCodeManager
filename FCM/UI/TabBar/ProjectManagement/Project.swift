@@ -103,8 +103,8 @@ func MakeApplicationProject(_ Name: String, _ BundleID: String, type: Int) -> In
             "TYPE": TYPE,
             "CMacro": "stable",
             "Macro": [
-                "stable": [:],
-                "debug": [:],
+                "stable": [:] as [String: Any],
+                "debug": [:] as [String: Any],
             ]
         ]
 

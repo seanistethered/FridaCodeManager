@@ -21,7 +21,7 @@ class MacroManager {
     
     func addMacro(_ macroName: String) {
         var macroDict = plistData["Macro"] as? [String: Any] ?? [:]
-        macroDict[macroName] = [:]
+        macroDict[macroName] = [:] as [String: Any]
         plistData["Macro"] = macroDict
     }
 

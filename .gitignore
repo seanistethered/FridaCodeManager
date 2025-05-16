@@ -9,3 +9,9 @@ Essentials/libsean/libsean16.o
 Essentials/lib/build
 tmp
 SDK
+*.theos
+.vscode
+packages
+compile_commands.json
+control
+FridaCodeManager.o
